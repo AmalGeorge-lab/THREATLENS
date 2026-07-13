@@ -194,6 +194,42 @@ SOC Dashboard
 
 ---
 
+
+
+## 📸 Screenshots
+
+### Home Page
+
+![Home Page](screenshots/Home.png)
+
+### Login Page
+
+![Login Page](screenshots/Login.png)
+
+### Register Page
+
+![Register Page](screenshots/Register.png)
+
+### Dashboard
+
+![Dashboard](screenshots/Dashboard.png)
+
+### Analysis Page
+
+![Analysis Page](screenshots/Analysis.png)
+
+### Alerts
+
+![Alerts](screenshots/Alerts.png)
+
+### Alert Info Page
+
+![Alert Info Page](screenshots/Alert-info.png)
+
+
+
+
+
 # Roadmap
 
 ## Phase 1 (Current)
