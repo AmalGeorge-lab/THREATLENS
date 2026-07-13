@@ -1,0 +1,82 @@
+.rules-container{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  color: white;
+  padding: 10px;
+}
+
+
+
+
+
+
+
+.rules-container .brute-force-rules{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  border: 1px solid rgb(28,37,65);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.rules-container .brute-force-rules header{
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+}
+
+
+
+.rules-container .brute-force-rules .alert-rules{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  border: 1px solid rgb(28,37,65);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.rules-container .brute-force-rules .alert-rules .heading{
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.rules-container .brute-force-rules .alert-rules .rules{
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.rules-container .brute-force-rules .alert-rules .rules > div{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  row-gap: 30px;
+  border-radius: 5px;
+  font-size: 13px;
+  border: 1px solid rgb(28,37,65);
+  padding: 20px;
+}
+
+.rules-container .brute-force-rules .alert-rules .rules > div .rule-heading{
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.rules-container .brute-force-rules .alert-rules .rules > div .rule-heading h3{
+  padding: 5px 10px;
+  border-radius: 2px;
+}
+
+.rules-container .brute-force-rules .alert-rules .rules > div .rule-figure{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,0 +1,30 @@
+.loading , .error , .success{
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  background: transparent;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.loading{
+  color: rgb(120, 229, 246);
+  border: 2px solid rgb(120, 229, 246);
+}
+
+.error{
+  color: rgb(251, 152, 152);
+  border: 2px solid rgb(251, 152, 152);
+  align-self: stretch;
+}
+
+.success{
+  color: rgb(122, 249, 113);
+  border: 2px solid rgb(122, 249, 113);
+}
+
+@media(max-width:500px){
+  .loading , .error , .success{
+    padding: 5px;
+  }
+}

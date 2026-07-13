@@ -1,0 +1,491 @@
+.home-section{
+  background: linear-gradient(to top right , black , rgb(18, 18, 18));
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  color: white;
+}
+
+
+
+
+/*banner section*/
+.banner-section{
+  display: flex;
+  padding: 20px;
+  background: linear-gradient(rgba(0, 0, 0, 0.475),rgba(0, 0, 0, 0.53)),url("/about-image.png");
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  flex-direction: column;
+  row-gap: 50px;
+}
+
+.banner-section > h2{
+  font-family: "Rowdies" , 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2rem;
+}
+
+.banner-section > h2 span{
+  font-family: "Rowdies" , 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2rem;
+  background: linear-gradient(to right, #0b67ca, #6a0595);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.banner-section > p{
+  color: gray;
+  font-size: 15px;
+  width: 800px;
+}
+
+.banner-section .buttons-section{
+  display: flex;
+  column-gap: 100px;
+}
+
+.banner-section .buttons-section button{
+  padding: 8px 12px;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  column-gap: 8px;
+  color: white;
+  border-radius: 5px;
+}
+
+.banner-section .buttons-section .getting-started{
+  background: linear-gradient(to right , blue , rgb(122, 3, 122));
+  border: none;
+}
+
+.banner-section .buttons-section .view-demo{
+  background-color: transparent;
+  border: 2px solid gray;
+}
+
+.banner-section .features{
+  display: flex;
+  gap: 30px;
+  font-size: 10px;
+}
+
+.banner-section .features > div{
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.banner-section .features > div .icon{
+  padding: 8px;
+  border-radius: 3px;
+}
+
+
+.banner-section .features > div div p{
+  color: gray;
+}
+
+.lui-shield{
+  color: rgb(132, 4, 171);
+  background-color: rgba(100, 4, 127, 0.363);
+}
+
+.lui-bolt{
+  color: rgb(4, 129, 171);
+  background-color: rgba(4, 94, 127, 0.363);
+}
+
+.lui-scan-search{
+  color: rgb(4, 171, 15);
+  background-color: rgba(4, 127, 8, 0.363);
+}
+
+
+
+
+
+
+
+
+
+
+
+/*How it works section*/
+.working-section{
+  margin: 0 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(2, 3, 42, 0.168);
+  border: 2px solid rgb(31, 30, 30);
+  border-radius: 10px;
+  row-gap: 30px;
+  font-size: 14px;
+}
+
+.working-section > h3{
+  font-family: "Rowdies";
+  text-align: center;
+  background: linear-gradient(to right, #0b67ca, #6a0595);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.working-section > h4{
+  text-align: center;
+}
+
+
+.working-section .working-manual{
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.working-section .working-manual > div{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  align-items: center;
+  width: 170px;
+}
+
+.working-section .working-manual > div .icon{
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.working-section .working-manual > div .lui-cloud-arrow-up{
+  color: rgb(103, 7, 133);
+  background-color: rgba(61, 3, 79, 0.515);
+}
+
+.working-section .working-manual > div .lui-brain{
+  color: rgb(15, 120, 169);
+  background-color: rgba(3, 46, 79, 0.515);
+}
+
+.working-section .working-manual > div .lui-exclamation{
+  color: rgb(164, 6, 6);
+  background-color: rgba(79, 3, 3, 0.515);
+}
+
+.working-section .working-manual > div .lui-file{
+  color: rgb(11, 164, 6);
+  background-color: rgba(3, 79, 27, 0.515);
+}
+
+.working-section .working-manual > div h5{
+  font-size: 13px;
+  padding: 8px 9px;
+  border-radius: 20px;
+  color: white;
+}
+
+.working-section .working-manual > div .number1{
+  background-color: rgba(65, 2, 84);
+}
+
+.working-section .working-manual > div .number2{
+  background-color: rgba(3, 71, 103);
+}
+
+.working-section .working-manual > div .number3{
+  background-color: rgba(103, 3, 3);
+}
+
+.working-section .working-manual > div .number4{
+  background-color: rgba(3, 103, 8);
+}
+
+.working-section .working-manual > div h3{
+  font-size: 13px;
+}
+
+.working-section .working-manual > div p{
+  font-size: 12px;
+  color: gray;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*Features section*/
+.features-section{
+  margin: 0 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(2, 3, 42, 0.168);
+  border: 2px solid rgb(31, 30, 30);
+  border-radius: 10px;
+  row-gap: 30px;
+  font-size: 14px;
+}
+
+.features-section > h3{
+  font-family: "Rowdies";
+  background: linear-gradient(to right, #0b67ca, #6a0595);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-align: center;
+}
+
+.features-section > h4{
+  text-align: center;
+}
+
+.features-section .features{
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.features-section .features > div{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  align-items: center;
+  width: 170px;
+}
+
+.features-section .features > div .icon{
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.features-section .features > div .lui-folder-open{
+  background-color: rgba(69, 7, 94, 0.373);
+  color: rgb(112, 9, 167);
+}
+
+.features-section .features > div .lui-cpu{
+  background-color: rgba(7, 74, 94, 0.373);
+  color: rgb(9, 146, 167);
+}
+
+.features-section .features > div .lui-bell{
+  background-color: rgba(94, 10, 7, 0.373);
+  color: rgb(167, 9, 9);
+}
+
+.features-section .features > div .lui-chart-column{
+  background-color: rgba(7, 94, 11, 0.373);
+  color: rgb(9, 167, 27);
+}
+
+.features-section .features > div .lui-shield-check{
+  background-color: rgba(7, 74, 94, 0.373);
+  color: rgb(9, 146, 167);
+}
+
+.features-section .features > div h3{
+  font-size: 14px;
+}
+
+.features-section .features > div p{
+  font-size: 12px;
+  color: gray;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*log types section*/
+.log-types-section{
+  margin: 0 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(2, 3, 42, 0.168);
+  border: 2px solid rgb(31, 30, 30);
+  border-radius: 10px;
+  row-gap: 30px;
+}
+
+.log-types-section > h3{
+  font-family: "Rowdies";
+  background: linear-gradient(to right, #0b67ca, #6a0595);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-align: center;
+}
+
+.log-types-section > div{
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.log-types-section > div > div{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  padding: 20px;
+  background-color: rgba(61, 3, 77, 0.114);
+  border-radius: 10px;
+  border: 2px solid rgb(32, 31, 31);
+}
+
+.log-types-section > div > div .type-heading{
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.log-types-section > div > div .type-heading .lui-database{
+  color: rgb(118, 4, 118);
+}
+
+.log-types-section > div > div .type-heading .lui-globe{
+  color: rgb(5, 111, 135);
+}
+
+.log-types-section > div > div .type-heading .lui-fire{
+  color: rgb(174, 80, 7);
+}
+
+.log-types-section > div > div .type-heading h3{
+  font-family: "Rowdies";
+  font-size: 15px;
+}
+
+.log-types-section > div > div .type-heading p{
+  font-size: 12px;
+  color: gray;
+  margin-top: 10px;
+}
+
+.log-types-section > div > div .threats{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.log-types-section > div > div .threats .linux{
+  color: rgb(124, 6, 124);
+  font-size: 15px;
+}
+
+.log-types-section > div > div .threats .web{
+  color: rgb(5, 111, 135);
+  font-size: 15px;
+}
+
+.log-types-section > div > div .threats .firewall{
+  color: rgb(135, 57, 5);
+  font-size: 15px;
+}
+
+.log-types-section > div > div .threats ul{
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  padding-left: 20px;
+  font-size: 12px;
+  color: gray;
+}
+
+.log-types-section > div > div .threats .linux-ul{
+  list-style-type: "🟣";
+}
+
+.log-types-section > div > div .threats .web-ul{
+  list-style-type: "🔵";
+}
+
+.log-types-section > div > div .threats .firewall-ul{
+  list-style-type: "🟠";
+}
+
+.log-types-section > div > div .threats ul li{
+  padding-left: 10px;
+}
+
+
+
+
+
+
+
+
+/*about section*/
+.about-section{
+  margin: 0 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.475),rgba(0, 0, 0, 0.53)),url("/about-image.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: 2px solid rgb(31, 30, 30);
+  border-radius: 10px;
+  row-gap: 30px;
+  text-align: center;
+}
+
+.about-section h3{
+  font-family: "Rowdies";
+  background: linear-gradient(to right, #0b67ca, #6a0595);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.about-section p{
+  color: gray;
+  font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+footer{
+  display: flex;
+  justify-content: space-between;
+  color: gray;
+  font-size: 13px;
+  padding: 20px;
+}

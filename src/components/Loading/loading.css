@@ -1,0 +1,44 @@
+.loading-container{
+  position: absolute;
+  width: 7rem;
+  height: 7rem;
+  top: 48%;
+  left: 48%;
+  margin: -3.1rem 0 0 -3.1rem;
+  border-top: solid 3px #32afa9;
+  border-radius: 50%;
+  animation: rotate 2s infinite linear;
+}
+
+.loading-container::before{
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-top: solid 3px #f17362;
+  border-radius: 50%;
+  animation: rotate 2s infinite linear;
+}
+
+.loading-container::after{
+  position: absolute;
+  content: "";
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  border-radius: 50%;
+  border-top: solid 3px #7e0cf5;
+  animation: rotate 1s infinite linear;
+}
+
+@keyframes rotate {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}

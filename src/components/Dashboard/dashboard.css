@@ -1,0 +1,186 @@
+.dashboard{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  padding: 10px 20px;
+  color: white;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+
+
+
+
+
+
+
+
+
+.dashboard .heading-info{
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.dashboard .heading-info h2{
+  font-family: "Rowdies";
+  font-size: 20px;
+}
+
+.dashboard .heading-info p{
+  font-size: 13px;
+  color: gray;
+}
+
+
+
+
+
+
+
+
+
+
+
+.dashboard .analysis-info{
+  display: flex;
+  column-gap: 20px;
+}
+
+.dashboard .analysis-info > div{
+  display: flex;
+  column-gap: 20px;
+  width: 300px;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid rgb(28,37,65);
+}
+
+.dashboard .analysis-info > div .icon{
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.dashboard .analysis-info > div > div{
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.dashboard > div .lui-files{
+  color: rgb(15, 116, 147);
+  background-color:rgba(4, 21, 76, 0.526) ;
+}
+
+
+.dashboard > div .lui-circle-check{
+  color: rgb(15, 147, 30);
+  background-color:rgba(3, 100, 3, 0.251) ;
+}
+
+.dashboard > div .lui-alert-triangle{
+  color: rgb(173, 133, 24);
+  background-color:rgba(97, 100, 3, 0.251) ;
+}
+
+.dashboard .analysis-info > div > div h3{
+  font-size: 25px;
+}
+
+.dashboard .analysis-info > div > div > p{
+  font-size: 12px;
+  color: gray;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.dashboard .logs-section{
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  border: 1px solid rgb(28,37,65);
+}
+
+
+.dashboard .logs-section h2{
+  font-family: "Rowdies";
+  padding: 20px;
+  font-size: 20px;
+}
+
+.dashboard .logs-section table{
+  width: 100%;
+  table-layout: fixed;
+  font-size: 14px;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.dashboard .logs-section table tbody tr td{
+  border-bottom: 1px solid #333;
+  padding: 10px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.dashboard .logs-section table thead th{
+  color: gray;
+  padding: 10px;
+}
+
+.dashboard .logs-section table tbody tr:last-child td{
+  border-bottom: none;
+}
+
+.dashboard .logs-section table tbody tr .actions .icon{
+  padding: 10px;
+  background-color: rgba(32, 32, 32, 0.705);
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.dashboard .logs-section table tbody tr .actions .icon:last-child{
+  margin-left: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+.dashboard .logs-section .message{
+  padding: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: gray;
+}

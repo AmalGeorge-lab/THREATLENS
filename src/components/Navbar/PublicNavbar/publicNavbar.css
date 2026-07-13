@@ -1,0 +1,164 @@
+.header-section{
+  background-color: black;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  color: white;
+}
+
+.header-section > div{
+  height: 100%;
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.header-section .name-section{
+  margin-left: 10px;
+}
+
+.header-section .name-section img{
+  height: 80%;
+  border-radius: 50%;
+}
+
+.header-section .name-section h2{
+  font-family: "Caprasimo";
+  font-weight: 300;
+  font-size: 30px;
+}
+
+.header-section .name-section h2 span{
+  font-family: "Caprasimo";
+  font-weight: 300;
+  background: linear-gradient(to right, #0b67ca, #6a0595);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.header-section .name-section p{
+  color: gray;
+  font-size: 13px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.header-section .navigation-section{
+  display: flex;
+  align-items: center;
+  column-gap: 50px;
+}
+
+.header-section .navigation-section a{
+  font-family: "Rowdies";
+  text-decoration: none;
+  color: rgb(167, 166, 166);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.header-section .buttons-section{
+  margin-right: 10px;
+}
+
+.header-section .buttons-section .login{
+  text-decoration: none;
+  border: 2px solid gray;
+  padding: 13px 20px;
+  border-radius: 5px;
+  font-family: "Rowdies";
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 8px;
+  font-size: 14px;
+}
+
+.header-section .buttons-section .register{
+  text-decoration: none;
+  padding: 13px 20px;
+  border-radius: 5px;
+  font-family: "Rowdies";
+  color: white;
+  background: linear-gradient(to right , blue , rgba(99, 2, 144, 0.864));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 8px;
+  font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width : 500px){
+  .header-section{
+    height: 50px;
+  }
+  .header-section .name-section h2{
+    font-size: 20px;
+  }
+  .header-section .name-section p{
+    font-size: 10px;
+  }
+}
+
+@media(max-width : 650px){
+  .header-section .buttons-section{
+    display: none;
+  }
+}
+
+@media(max-width : 1060px){
+  .header-section .navigation-section{
+    display: none;
+  }
+}

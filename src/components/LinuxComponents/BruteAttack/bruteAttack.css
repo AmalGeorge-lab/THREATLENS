@@ -1,0 +1,377 @@
+.brute-force-attack-section{
+  background-color: rgb(4, 9, 24);
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.brute-force-attack-section .alert-info-section{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid rgb(28,37,65);
+  background-color: rgb(12,19,45);
+}
+
+.brute-force-attack-section .alert-info-section .left-section{
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+}
+
+.brute-force-attack-section .alert-info-section .left-section > div{
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+.brute-force-attack-section .alert-info-section .left-section > div h4{
+  font-family: "Rowdies";
+  font-size: 15px;
+}
+
+.brute-force-attack-section .alert-info-section .left-section > div p{
+  font-size: 12px;
+  color: gray;
+  display: flex;
+  column-gap: 15px;
+}
+
+.brute-force-attack-section .alert-info-section .left-section > div p span{
+  padding: 5px 8px;
+  border: 1px solid gray;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+
+.brute-force-attack-section .alert-info-section .middle-section,
+.brute-force-attack-section .alert-info-section .right-section{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.brute-force-attack-section .alert-info-section .middle-section p,
+.brute-force-attack-section .alert-info-section .right-section p{
+  color: gray;
+  font-size: 12px;
+}
+
+.brute-force-attack-section .alert-info-section .right-section .low{
+  color: rgb(5, 182, 217);
+}
+
+.brute-force-attack-section .alert-info-section .right-section .medium{
+  color: rgb(216, 195, 5);
+}
+
+.brute-force-attack-section .alert-info-section .right-section .high{
+  color: rgb(214, 117, 6);
+}
+
+.brute-force-attack-section .alert-info-section .right-section .critical{
+  color: rgb(221, 6, 6);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.brute-force-attack-section .alert-target-details-section{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid rgb(28,37,65);
+  background-color: rgb(12,19,45);
+}
+
+.brute-force-attack-section .alert-target-details-section > div{
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.brute-force-attack-section .alert-target-details-section > div .icon{
+  color: rgb(158, 3, 158);
+  background-color: rgba(96, 3, 117, 0.404);
+  padding: 7px;
+  border-radius: 5px;
+}
+
+.brute-force-attack-section .alert-target-details-section > div h4{
+  font-family: "Rowdies";
+  font-size: 15px;
+}
+
+.brute-force-attack-section .alert-target-details-section > div div{
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.brute-force-attack-section .alert-details-section{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid rgb(28,37,65);
+  background-color: rgb(12,19,45);
+}
+
+.brute-force-attack-section .alert-details-section h4{
+  font-family: "Rowdies";
+  font-size: 15px;
+}
+
+.brute-force-attack-section .alert-details-section div{
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+
+.brute-force-attack-section .alert-details-section div p{
+  display: flex;
+  column-gap: 10px;
+  padding: 5px 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.brute-force-attack-section .alert-timeline-section{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid rgb(28,37,65);
+  background-color: rgb(12,19,45);
+  font-size: 13px;
+}
+
+.brute-force-attack-section .alert-timeline-section > h4{
+  font-family: "Rowdies";
+  font-size: 15px;
+}
+
+.brute-force-attack-section .alert-timeline-section > section{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.brute-force-attack-section .alert-timeline-section > section section{
+  display: flex;
+  column-gap: 50px;
+  align-items: center;
+}
+
+.brute-force-attack-section .alert-timeline-section > section section > div{
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.brute-force-attack-section .alert-timeline-section > section section > div .time{
+  color: rgb(114, 1, 114);
+  font-size: 17px;
+}
+
+.brute-force-attack-section .alert-timeline-section > section section .bell-icon{
+  background-color: rgba(92, 2, 92, 0.552);
+  padding: 10px;
+  border-radius: 40px;
+  border: 2px solid violet;
+}
+
+.brute-force-attack-section .alert-timeline-section > section section .lui-circle-check{
+  background-color: rgba(2, 92, 8, 0.552);
+  padding: 10px;
+  border-radius: 40px;
+  border: 2px solid rgb(130, 238, 141);
+}
+
+.brute-force-attack-section .alert-timeline-section > section section .success-occured{
+  border: 2px solid rgb(195, 5, 5);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  column-gap: 10px;
+  padding: 20px;
+  border-radius: 5px;
+  font-family: "Rowdies";
+  font-weight: 500;
+}
+
+.brute-force-attack-section .alert-timeline-section > section section .related-alert-info{
+  border: 2px solid rgb(28,37,65);
+  flex: 1;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.brute-force-attack-section .alert-timeline-section > section section .related-alert-info > div{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  align-items: start;
+}
+
+.brute-force-attack-section .alert-timeline-section > section section .related-alert-info .alert-name{
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+  font-size: 15px;
+}
+
+.brute-force-attack-section .alert-timeline-section > section section .related-alert-info .alert-name span{
+  padding: 5px 10px;
+  background-color: rgba(81, 2, 111, 0.812);
+  color: white;
+  border-radius: 5px;
+}
+
+.brute-force-attack-section .alert-timeline-section > section section .related-alert-info > div button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 15px;
+  font-size: 10px;
+  column-gap: 8px;
+  background-color: transparent;
+  outline: none;
+  border: 1px solid gray;
+  color: white;
+  border-radius: 5px;
+}
+
+.brute-force-attack-section .alert-timeline-section > section section .related-alert-info .time-details{
+  padding: 10px 20px;
+  background-color: rgba(57, 1, 79, 0.404);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.brute-force-attack-section .summary-section{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid rgb(28,37,65);
+  background-color: rgb(12,19,45);
+}
+
+.brute-force-attack-section .summary-section h4{
+  font-family: "Rowdies";
+  font-size: 15px;
+}
+
+.brute-force-attack-section .summary-section p{
+  color: gray;
+  font-size: 13px;
+  line-height: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.brute-force-attack-section .status-section{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid rgb(28,37,65);
+  background-color: rgb(12,19,45);
+}
+
+.brute-force-attack-section .status-section h4{
+  font-family: "Rowdies";
+  font-size: 15px;
+}
+
+.brute-force-attack-section .status-section select{
+  outline: none;
+  padding: 5px 10px 5px 5px;
+  background-color: transparent;
+  color: rgb(7, 234, 7);
+  border: 2px solid rgb(12, 224, 12);
+  border-radius: 5px;
+}
+
+.brute-force-attack-section .status-section select option{
+  background-color: rgb(12,19,45);
+}

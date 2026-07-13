@@ -1,0 +1,66 @@
+.error-container{
+  color: white;
+  display: flex;
+  row-gap: 20px;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.error-container .error-shield{
+  color: #4f46e5;
+  filter: drop-shadow(0 0 8px rgba(106, 5, 149, 0.5));
+}
+
+.error-container h1{
+  font-family: "Caprasimo";
+  font-weight: 300;
+  font-size: 40px;
+  background: linear-gradient(to right, #c30849, #d90505);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.error-container h4{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+}
+
+.error-container section{
+  padding: 40px;
+  width: 600px;
+  border: 1px solid rgb(28,37,65);
+  justify-content: space-between;
+  border-radius: 10px;
+  display: flex;
+}
+
+.error-container section div{
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.error-container section div span{
+  color: rgb(0, 102, 255);
+}
+
+.error-container section div h3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 8px;
+  color: rgb(0, 102, 255);
+}
+
+
+@media(max-width : 700px){
+  .error-container section{
+    width: 60%;
+  }
+  .error-container section .size-info{
+    display: none;
+  }
+}

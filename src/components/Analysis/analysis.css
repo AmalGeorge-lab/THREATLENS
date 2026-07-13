@@ -1,0 +1,223 @@
+.analysis-container{
+  padding: 20px;
+  background-color: rgb(4, 9, 24);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.analysis-container .logs-parsed-count{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border: 1px solid rgb(28,37,65);
+  background-color: rgb(12,19,45);
+  border-radius: 5px;
+}
+
+.analysis-container .logs-parsed-count > h3{
+  font-family: "Rowdies";
+  font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+.analysis-container .chart-container{
+  min-height: 500px;
+  display: flex;
+  gap: 20px;
+}
+
+.analysis-container .chart-container .side-charts{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.analysis-container .chart-container .side-charts .severity-chart ,
+.analysis-container .chart-container .side-charts .rules-chart{
+  height: 200px;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid rgb(28,37,65);
+  background-color: rgb(12,19,45);
+}
+
+.analysis-container .chart-container .main-chart{
+  width: calc(100vw - 436px);
+  min-width: 864px;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid rgb(28,37,65);
+  background-color: rgb(12,19,45);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.analysis-container .alert-container{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  border-radius: 5px;
+  border: 1px solid rgb(28,37,65);
+  background-color: rgb(12,19,45);
+}
+
+.analysis-container .alert-container > section{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.analysis-container .alert-container > section h3{
+  font-family: "Rowdies";
+}
+
+.analysis-container .alert-container > section div{
+  display: flex;
+  gap: 50px;
+}
+
+.analysis-container .alert-container > section div select{
+  width: 150px;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  padding: 5px 0 5px 5px;
+  border-radius: 2px;
+  border: 2px solid gray;
+}
+
+.analysis-container .alert-container > section div select option{
+  background-color: black;
+}
+
+.analysis-container .alert-container table{
+  table-layout: fixed;
+  width: 100%;
+  font-size: 13px;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.analysis-container .alert-container table tbody tr td,
+.analysis-container .alert-container table thead tr th{
+  padding: 15px 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.analysis-container .alert-container table thead th{
+  color: gray;
+}
+
+.analysis-container .alert-container table tbody tr .high span{
+  padding: 5px 8px;
+  background-color: rgba(255, 132, 0, 0.052);
+  letter-spacing: 1px;
+  color: rgb(181, 98, 4);
+  border: 2px solid rgb(181, 98, 4) ;
+  border-radius: 5px;
+}
+
+.analysis-container .alert-container table tbody tr .critical span{
+  padding: 5px 8px;
+  background-color: rgba(255, 0, 0, 0.052);
+  letter-spacing: 1px;
+  color: rgb(181, 4, 4);
+  border: 2px solid rgb(181, 4, 4);
+  border-radius: 5px;
+}
+
+.analysis-container .alert-container table tbody tr .medium span{
+  padding: 5px 8px;
+  background-color: rgba(251, 255, 0, 0.052);
+  letter-spacing: 1px;
+  color: rgb(181, 163, 4);
+  border: 2px solid rgb(181, 163, 4);
+  border-radius: 5px;
+}
+
+.analysis-container .alert-container table tbody tr .low span{
+  padding: 5px 8px;
+  background-color: rgba(0, 225, 255, 0.052);
+  letter-spacing: 1px;
+  color: rgb(4, 152, 181);
+  border:2px solid rgb(4, 152, 181) ;
+  border-radius: 5px;
+}
+
+.analysis-container .alert-container table tbody tr .open span{
+  padding: 10px;
+  background-color: rgba(0, 255, 8, 0.052);
+  color: rgb(4, 181, 10);
+  border-radius: 5px;
+}
+
+.analysis-container .alert-container table tbody tr .closed span{
+  padding: 10px;
+  background-color: rgba(0, 68, 255, 0.052);
+  color: rgb(4, 95, 181);
+  border-radius: 5px;
+}
+
+.analysis-container .alert-container table tbody tr .lui-eye{
+  padding: 5px;
+  background-color: rgba(31, 31, 31, 0.359);
+  border-radius: 2px;
+}
+
+.analysis-container .alert-container .message{
+  text-align: center;
+  font-size: 13px;
+  color: gray;
+  padding: 20px;
+}
+
+.analysis-container .alert-container .filter-loading-container{
+  position: relative;
+  padding: 20px;
+  height: 130px;
+}

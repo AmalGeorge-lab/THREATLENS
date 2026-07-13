@@ -1,0 +1,47 @@
+.error-container{
+  color: white;
+  display: flex;
+  row-gap: 20px;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.error-container .error-shield{
+  color: #4f46e5;
+  filter: drop-shadow(0 0 8px rgba(106, 5, 149, 0.5));
+}
+
+.error-container h1{
+  font-family: "Caprasimo";
+  font-weight: 300;
+  font-size: 40px;
+  background: linear-gradient(to right, #c30849, #d90505);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.error-container h4{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+}
+
+.error-container p{
+  color: gray;
+  font-size: 15px;
+}
+
+.error-container button{
+  padding: 10px 15px;
+  font-family: Rowdies;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 8px;
+  background-color: transparent;
+  color: #4f46e5;
+  border: 2px solid #4f46e5;
+  border-radius: 20px;
+}

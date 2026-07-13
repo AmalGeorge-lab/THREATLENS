@@ -1,0 +1,117 @@
+.main-container{
+  background: linear-gradient(rgba(0, 0, 0, 0.475),rgba(0, 0, 0, 0.53)),url("/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.main-container .container{
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  border-radius: 10px;
+  width: 500px;
+  padding: 40px;
+  border: 2px solid gray;
+}
+
+.main-container .container > div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+}
+
+.main-container .container > div > img{
+  width: 80px;
+  border-radius: 50%;
+}
+
+.main-container .container > div h2{
+  font-family: "Rowdies";
+  text-align: center;
+}
+
+.main-container .container > div p{
+  font-size: 13px;
+  color: gray;
+  text-align: center;
+}
+
+.main-container .container > form{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.main-container .container > form > div{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  position: relative;
+}
+
+.main-container .container > form > div span{
+  color: rgb(251, 152, 152);
+  font-size: 12px;
+}
+
+.main-container .container > form > div > label{
+  font-size: 13px;
+}
+
+.main-container .container > form > div .fa-envelope,
+.main-container .container > form > div .fa-lock ,
+.main-container .container > form > div .fa-user{
+  position: absolute;
+  top: 37px;
+  left: 10px;
+}
+
+.main-container .container > form > div .fa-eye-slash{
+  position: absolute;
+  right: 12px;
+  font-size: 14px;
+  top: 37px;
+}
+
+.main-container .container > form > div > input{
+  padding: 8px 35px;
+  background-color: transparent;
+  border:2px solid gray;
+  border-radius: 5px;
+  color: white;
+  letter-spacing: 2px;
+  outline: none;
+}
+
+.main-container .container > form button{
+  padding: 8px;
+  font-family: "Rowdies";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 8px;
+  letter-spacing: 1px;
+  font-size: 15px;
+  background: linear-gradient(to right ,rgb(4, 96, 125) , rgb(12, 83, 164) , rgb(96, 6, 121));
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.main-container .container > p{
+  font-size: 13px;
+  text-align: center;
+}
+
+.main-container .container > p a{
+  text-decoration: none;
+  color: rgb(39, 83, 203);
+  margin-left: 6px;
+}
