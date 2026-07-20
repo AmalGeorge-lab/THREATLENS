@@ -231,7 +231,7 @@ const Home = () => {
     </section>
 
     <footer>
-      <p>2026 SOC Analyst. All rights reserved.</p>
+      <p>&copy; 2026 SOC Analyst. All rights reserved.</p>
       <p>Developed by Amal George</p>
     </footer>
 
