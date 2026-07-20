@@ -21,6 +21,7 @@ import { alertAPI, updateStatusAPI } from "../../../api/alertsAPI";
 import {useNavigate,useParams} from "react-router-dom";
 import { formatDuration } from "../../../utils/time";
 import Loading from "../../Loading/Loading";
+import { useEffect } from "react";
 
 
 
