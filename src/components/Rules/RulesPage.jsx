@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "./rule.css";
-import {ShieldAlert , Bell , Laptop , User , ArrowLeftRight , CircleCheck} from "lucide-react";
+import {ShieldAlert , Bell , Laptop , User , ArrowLeftRight , CircleCheck, BadgeInfo, FileLock2, DatabaseZap, SquareTerminal, Plug, CircleX, Ampersands, Globe, Server} from "lucide-react";
 
 
 
@@ -89,6 +89,100 @@ const bruteForceSuccessAlerts = [
     thresholdStatement : (<>Success after more than <span style={{ color : "rgb(244, 116, 5)" }}>3</span> IP attempts within 1 minute</>) ,
     riskScoreStatement : "Increases with more attempts and IPs"
   }
+]
+
+const webRules = [
+  {
+    id : 1 ,
+    heading : (<>SAME IP <ArrowLeftRight size={10}/> 404 STATUS CODE</>),
+    subHeading : "Directory Enumeration" ,
+    icon1 : <Laptop size={35}/> ,
+    icon1Text : "IP" ,
+    icon2 : <BadgeInfo size={30}/> ,
+    icon2Text : "404 status code" ,
+    thresholdStatement : (<>More than <span style={{ color : "rgb(244, 116, 5)" }}>20</span> attempts</>) ,
+    riskScoreStatement : "Increases with more attempts"
+  } ,
+  {
+    id : 2 ,
+    heading : (<>IP <ArrowLeftRight size={10}/> SENSITIVE FILE</>),
+    subHeading : "Sensitive File Access Attempt" ,
+    icon1 : <Laptop size={35}/> ,
+    icon1Text : "IP" ,
+    icon2 : <FileLock2 size={30}/> ,
+    icon2Text : "sensitive file" ,
+    thresholdStatement : "Contains: .env , config.php , backup.zip , database.sql etc" ,
+    riskScoreStatement : "Fixed"
+  } ,
+  {
+    id : 3 ,
+    heading : (<>IP <ArrowLeftRight size={10}/> SQL PATTERN</>),
+    subHeading : "SQL Injection Detection" ,
+    icon1 : <Laptop size={35}/> ,
+    icon1Text : "IP" ,
+    icon2 : <DatabaseZap size={30}/> ,
+    icon2Text : "sql patterns" ,
+    thresholdStatement : "Patterns: --UNION SELECTOR 1=1 SLEEP(" ,
+    riskScoreStatement : "Fixed"
+  } ,
+  {
+    id : 4 ,
+    heading : (<>IP <ArrowLeftRight size={10}/> SHELL ACCESS</>),
+    subHeading : "Web Shell Detection" ,
+    icon1 : <Laptop size={35}/> ,
+    icon1Text : "IP" ,
+    icon2 : <SquareTerminal size={30}/> ,
+    icon2Text : "shell extensions" ,
+    thresholdStatement : "shell extensions (such as .php, .jsp, .asp, .aspx, .cgi)" ,
+    riskScoreStatement : "Fixed"
+  }
+]
+
+const firewallRules = [
+  {
+    id : 1 ,
+    heading : (<>SAME IP <ArrowLeftRight size={10}/> DESTINATION PORTS</>),
+    subHeading : "Port Scanning Detection" ,
+    icon1 : <Laptop size={35}/> ,
+    icon1Text : "IP" ,
+    icon2 : <Plug size={30}/> ,
+    icon2Text : "Destination ports" ,
+    thresholdStatement : (<>More than <span style={{ color : "rgb(244, 116, 5)" }}>20</span> different ports</>) ,
+    riskScoreStatement : "Increases with more attempts"
+  } ,
+  {
+    id : 2 ,
+    heading : (<>SAME IP <ArrowLeftRight size={10}/> DROP ACTIONS</>),
+    subHeading : "Excessive Blocked Connections" ,
+    icon1 : <Laptop size={35}/> ,
+    icon1Text : "IP" ,
+    icon2 : <CircleX size={30}/> ,
+    icon2Text : "Drop action" ,
+    thresholdStatement : (<>More than <span style={{ color : "rgb(244, 116, 5)" }}>50</span> drop actions</>) ,
+    riskScoreStatement : "Increases with more attempts"
+  } ,
+  {
+    id : 3 ,
+    heading : (<>DSTN PORT(22) <Ampersands size={10}/> DROP ACTION</>),
+    subHeading : "SSH Targeting Detection" ,
+    icon1 : <Plug size={35}/> ,
+    icon1Text : "Destination port" ,
+    icon2 : <CircleX size={30}/> ,
+    icon2Text : "Drop action" ,
+    thresholdStatement : (<>More than <span style={{ color : "rgb(244, 116, 5)" }}>10</span> attempts</>) ,
+    riskScoreStatement : "Increases with more attempts"
+  } ,
+  {
+    id : 4 ,
+    heading : (<>EXTERNAL IP <ArrowLeftRight size={10}/> INTERNAL HOST</>),
+    subHeading : "Internal Network Access Attempt" ,
+    icon1 : <Globe size={35}/> ,
+    icon1Text : "External IP" ,
+    icon2 : <Server size={30}/> ,
+    icon2Text : "Internal Host" ,
+    thresholdStatement : (<>More than <span style={{ color : "rgb(244, 116, 5)" }}>5</span> hosts</>) ,
+    riskScoreStatement : "Increases with more attempts"
+  } 
 ]
 
 
@@ -194,6 +288,112 @@ const RulesPage = () => {
                     <div style={{ display : "flex" , flexDirection : "column" , rowGap : "10px" , alignItems : "center" , color : "rgb(10, 158, 233)" }}>
                       <User size={35}/>
                       <p>{alert.user}</p>
+                    </div>
+                  </div>
+                  <div style={{ fontSize : "10px" , display : "flex" , flexDirection : "column" , rowGap : "5px" }}>
+                    <p style={{ color : "orange" }}>Threshold</p>
+                    <p>{alert.thresholdStatement}</p>
+                  </div>
+                  <div style={{ fontSize : "10px" , display : "flex" , flexDirection : "column" , rowGap : "5px" }}>
+                    <p style={{ color : "rgb(248, 40, 4)" }}>Risk Score</p>
+                    <p>{alert.riskScoreStatement}</p>
+                  </div>
+                </div>
+              )
+            })}
+
+          </section>
+
+        </section>
+
+      </section>
+
+      <section className="brute-force-rules">
+
+        <header>
+          <ShieldAlert size={50} style={{ color : "rgb(255, 0, 157)" }}/>
+          <div>
+            <h3 style={{ fontFamily : "Rowdies" }}>WEB ALERTS DETECTION RULES</h3>
+            <p style={{ color : "gray" , fontSize : "13px" }}>Risk score increases with more attempts.</p>
+          </div>
+        </header>
+
+        <section className="alert-rules">
+
+          <section className="rules">
+
+            {webRules.map((alert)=>{
+              return (
+                <div key={alert.id}>
+                  <div className="rule-heading">
+                    <h3 style={{ backgroundColor : "rgba(179, 0, 255, 0.5)" }}>{alert.id}</h3>
+                    <div>
+                      <h4 style={{ fontFamily : "Rowdies" }}>{alert.heading}</h4>
+                      <p style={{ color : "gray" , fontSize : "10px" }}>{alert.subHeading}</p>
+                    </div>
+                  </div>
+                  <div className="rule-figure">
+                    <div style={{ display : "flex" , flexDirection : "column" , rowGap : "10px" , alignItems : "center" , color : "rgb(229, 6, 77)" }}>
+                      {alert.icon1}
+                      <p>{alert.icon1Text}</p>
+                    </div>
+                    <ArrowLeftRight style={{ color : "gray" }}/>
+                    <div style={{ display : "flex" , flexDirection : "column" , rowGap : "10px" , alignItems : "center" , color : "rgb(10, 158, 233)" }}>
+                      {alert.icon2}
+                      <p>{alert.icon2Text}</p>
+                    </div>
+                  </div>
+                  <div style={{ fontSize : "10px" , display : "flex" , flexDirection : "column" , rowGap : "5px" }}>
+                    <p style={{ color : "orange" }}>Threshold</p>
+                    <p>{alert.thresholdStatement}</p>
+                  </div>
+                  <div style={{ fontSize : "10px" , display : "flex" , flexDirection : "column" , rowGap : "5px" }}>
+                    <p style={{ color : "rgb(248, 40, 4)" }}>Risk Score</p>
+                    <p>{alert.riskScoreStatement}</p>
+                  </div>
+                </div>
+              )
+            })}
+
+          </section>
+
+        </section>
+
+      </section>
+
+      <section className="brute-force-rules">
+
+        <header>
+          <ShieldAlert size={50} style={{ color : "rgb(255, 0, 157)" }}/>
+          <div>
+            <h3 style={{ fontFamily : "Rowdies" }}>FIREWALL ALERTS DETECTION RULES</h3>
+            <p style={{ color : "gray" , fontSize : "13px" }}>All rules uses either <span style={{ color : "rgb(0, 149, 255)" }}>10 minute or 5 minute </span>time window. Risk score increases with more attempts.</p>
+          </div>
+        </header>
+
+        <section className="alert-rules">
+
+          <section className="rules">
+
+            {firewallRules.map((alert)=>{
+              return (
+                <div key={alert.id}>
+                  <div className="rule-heading">
+                    <h3 style={{ backgroundColor : "rgba(255, 119, 0, 0.5)" }}>{alert.id}</h3>
+                    <div>
+                      <h4 style={{ fontFamily : "Rowdies" }}>{alert.heading}</h4>
+                      <p style={{ color : "gray" , fontSize : "10px" }}>{alert.subHeading}</p>
+                    </div>
+                  </div>
+                  <div className="rule-figure">
+                    <div style={{ display : "flex" , flexDirection : "column" , rowGap : "10px" , alignItems : "center" , color : "rgb(229, 6, 77)" }}>
+                      {alert.icon1}
+                      <p>{alert.icon1Text}</p>
+                    </div>
+                    <ArrowLeftRight style={{ color : "gray" }}/>
+                    <div style={{ display : "flex" , flexDirection : "column" , rowGap : "10px" , alignItems : "center" , color : "rgb(10, 158, 233)" }}>
+                      {alert.icon2}
+                      <p>{alert.icon2Text}</p>
                     </div>
                   </div>
                   <div style={{ fontSize : "10px" , display : "flex" , flexDirection : "column" , rowGap : "5px" }}>
