@@ -51,7 +51,7 @@
 .dashboard .analysis-info > div{
   display: flex;
   column-gap: 20px;
-  width: 300px;
+  width: 200px;
   padding: 20px;
   border-radius: 5px;
   border: 1px solid rgb(28,37,65);
@@ -79,9 +79,19 @@
   background-color:rgba(3, 100, 3, 0.251) ;
 }
 
-.dashboard > div .lui-alert-triangle{
-  color: rgb(173, 133, 24);
-  background-color:rgba(97, 100, 3, 0.251) ;
+.dashboard > div .lui-alert-terminal{
+  color: rgb(126, 24, 173);
+  background-color:rgba(85, 3, 100, 0.251) ;
+}
+
+.dashboard > div .lui-alert-globe{
+  color: rgb(36, 24, 173);
+  background-color:rgba(18, 3, 100, 0.251) ;
+}
+
+.dashboard > div .lui-alert-flame{
+  color: rgb(173, 108, 24);
+  background-color:rgba(100, 58, 3, 0.251) ;
 }
 
 .dashboard .analysis-info > div > div h3{

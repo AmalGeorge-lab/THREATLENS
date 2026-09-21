@@ -1,12 +1,12 @@
 import "./dashboard.css";
 import {useNavigate} from "react-router-dom";
-import { AlertTriangle, CircleCheck, Trash, Files ,  Eye } from "lucide-react";
+import { CircleCheck, Trash, Files ,  Eye, Terminal, Globe2, Flame } from "lucide-react";
 import {useMutation, useQuery} from "@tanstack/react-query";
 import { dashboardAPI } from "../../api/userAPI";
 import { useEffect } from "react";
-import { totalAlertCalculator, totalLogsCalculator } from "../../utils/dashboardUtils";
+import { totalLogsCalculator, typeLogCalculator } from "../../utils/dashboardUtils";
 import Loading from "../Loading/Loading";
-import { deleteLogAPI } from "../../api/alertsAPI";
+import { firewallDeleteLogAPI, linuxDeleteLogAPI, webDeleteLogAPI } from "../../api/alertsAPI";
 
 
 
@@ -23,29 +23,66 @@ const Dashboard = () => {
     retry : false 
   });
 
-  const {mutateAsync , isError : isDeletingError , error : deleteError} = useMutation({ mutationFn : deleteLogAPI , mutationKey : ["deleteLog"] });
+  const {mutateAsync : authMutateAsync , isError : authIsDeletingError , error : authDeleteError} = useMutation({ mutationFn : linuxDeleteLogAPI , mutationKey : ["linuxDeleteLog"] });
+  const {mutateAsync : webMutateAsync , isError : webIsDeletingError , error : webDeleteError} = useMutation({ mutationFn : webDeleteLogAPI , mutationKey : ["webDeleteLog"] });
+  const {mutateAsync : firewallMutateAsync , isError : firewallIsDeletingError , error : firewallDeleteError} = useMutation({ mutationFn : firewallDeleteLogAPI , mutationKey : ["firewallDeleteLog"] });
 
+
+  
   const totalLogsParsed = isSuccess ? totalLogsCalculator(data) : 0;
-  const totalAlerts = isSuccess ? totalAlertCalculator(data) : 0;
+  const logTypes = isSuccess ? typeLogCalculator(data) : {};
+
+
+
 
 
   useEffect(() => {
     document.title = "Dashboard";
   }, []);
 
+
+
+
+
+
+
   useEffect(()=>{
     if(isError){
       navigate("/error",{state : { errorMessage : error.response?.data?.message }});
     }
-    if(isDeletingError){
-      navigate("/error",{state : { errorMessage : deleteError.response?.data?.message }});
+    if(authIsDeletingError){
+      navigate("/error",{state : { errorMessage : authDeleteError.response?.data?.message }});
     }
-  },[isError , isDeletingError]);
+    if (webIsDeletingError){
+      navigate("/error",{state : { errorMessage : webDeleteError.response?.data?.message }});
+    }
+    if (firewallIsDeletingError){
+      navigate("/error",{state : { errorMessage : firewallDeleteError.response?.data?.message }});
+    }
+  },[isError , authIsDeletingError , webIsDeletingError , firewallIsDeletingError]);
 
-  const deleteLogFn = (fileId) => {
-    mutateAsync({fileId}).then(()=>{
-      refetch()
-    });
+
+
+
+
+
+
+  const deleteLogFn = (fileId , logType) => {
+    if (logType === "auth"){
+      authMutateAsync({fileId}).then(()=>{
+        refetch();
+      });
+    }
+    else if (logType === "web"){
+      webMutateAsync({fileId}).then(()=>{
+        refetch();
+      });
+    }
+    else if(logType === "firewall"){
+      firewallMutateAsync({fileId}).then(()=>{
+        refetch();
+      });
+    }
   }
 
 
@@ -81,10 +118,28 @@ const Dashboard = () => {
               </div>
 
               <div>
-                <AlertTriangle size={30} className="icon lui-alert-triangle"/>
+                <Terminal size={30} className="icon lui-alert-terminal"/>
                 <div>
-                  <p>Alerts Generated</p>
-                  <h3 style={{ color : "rgb(216, 166, 28)" }}>{totalAlerts}</h3>
+                  <p>Linux Files</p>
+                  <h3 style={{ color : "rgb(126, 24, 173)" }}>{logTypes.AUTH}</h3>
+                  <p>Across all files</p>
+                </div>
+              </div>
+
+              <div>
+                <Globe2 size={30} className="icon lui-alert-globe"/>
+                <div>
+                  <p>Web Files</p>
+                  <h3 style={{ color : "rgb(36, 24, 173)" }}>{logTypes.WEB}</h3>
+                  <p>Across all files</p>
+                </div>
+              </div>
+
+              <div>
+                <Flame size={30} className="icon lui-alert-flame"/>
+                <div>
+                  <p>Linux Files</p>
+                  <h3 style={{ color : "rgb(173, 108, 24)" }}>{logTypes.FIREWALL}</h3>
                   <p>Across all files</p>
                 </div>
               </div>
@@ -118,14 +173,14 @@ const Dashboard = () => {
                         <tr key={info._id}>
                           <td>{info.fileName}</td>
                           <td>{`${(info.fileSize / 1024).toFixed(2)} KB`}</td>
-                          <td>{info.logType}</td>
+                          <td>{info.logType.toUpperCase()}</td>
                           <td>{info.parsedLogs}</td>
                           <td style={{ color : "rgb(8, 159, 173)" }}>{info.alertsGenerated.low}</td> 
                           <td style={{ color : "rgb(193, 187, 8)" }}>{info.alertsGenerated.medium}</td> 
                           <td style={{ color : "rgb(173, 99, 8)" }}>{info.alertsGenerated.high}</td>
                           <td style={{ color : "rgb(173, 8, 8)" }}>{info.alertsGenerated.critical}</td>
                           <td>{new Date(info.createdAt).toLocaleDateString("en-US",{ month : "long" , day : "numeric" , year : "numeric" })}</td>
-                          <td className="actions"><Eye size={15} className="icon" onClick={()=>navigate(`/linux/analysis/${info._id}`)}/><Trash onClick={()=>deleteLogFn(info._id)} size={15} className="icon" /></td>
+                          <td className="actions"><Eye size={15} className="icon" onClick={()=>navigate(`/${info.logType}/analysis/${info._id}`)}/><Trash onClick={()=>deleteLogFn(info._id,info.logType)} size={15} className="icon" /></td>
                         </tr>
                       )
                     })}

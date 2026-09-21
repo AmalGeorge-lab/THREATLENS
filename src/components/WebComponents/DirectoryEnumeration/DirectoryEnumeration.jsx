@@ -1,25 +1,7 @@
-import "./invalidUser.css";
-import { 
-  BadgeAlert, 
-  Calendar, 
-  CircleAlert, 
-  Clock, 
-  Cog, 
-  Cpu, 
-  Crosshair, 
-  FileCode, 
-  Fingerprint, 
-  Globe, 
-  ScrollText, 
-  Server, 
-  ShieldX, 
-  Timer, 
-  UserSearch,
-  UsersRound,
-  Waypoints
-} from "lucide-react";
+import "./directoryAttack.css";
 import {useMutation, useQuery} from "@tanstack/react-query";
-import { linuxAlertAPI, linuxUpdateStatusAPI } from "../../../api/alertsAPI";
+import { BadgeAlert, BadgeInfo, Calendar, CircleAlert, Clock, Crosshair, FileCode, Fingerprint, FolderSearch, Globe, Hash, ScrollText, Timer } from "lucide-react";
+import { webAlertAPI, webUpdateStatusAPI } from "../../../api/alertsAPI";
 import {useNavigate,useParams} from "react-router-dom";
 import { formatDuration } from "../../../utils/time";
 import Loading from "../../Loading/Loading";
@@ -27,20 +9,23 @@ import { useEffect } from "react";
 
 
 
-const InvalidUser = () => {
+
+
+const DirectoryEnumeration = () => {
 
   const navigate = useNavigate();
   const {id} = useParams();
 
-  const {data,isSuccess,refetch,isPending,isError,error} = useQuery({ queryFn : ()=>linuxAlertAPI(id) , queryKey : [id] , enabled : !!id , retry : false });
-  const { mutateAsync , isError : isUpdatingError , error : updatingError } = useMutation({ mutationFn : linuxUpdateStatusAPI , mutationKey : [id] });
+  const {data,isSuccess,refetch,isPending,isError,error} = useQuery({ queryFn : ()=>webAlertAPI(id) , queryKey : [id] , enabled : !!id , retry : false });
+  const { mutateAsync , isError : isUpdatingError , error : updatingError } = useMutation({ mutationFn : webUpdateStatusAPI , mutationKey : [id] });
 
 
   const updateStatus = (status) => {
     mutateAsync({id,status}).then((data)=>{
       refetch();
-    })
+    });
   }
+
 
   useEffect(()=>{
     if(isError){
@@ -53,9 +38,8 @@ const InvalidUser = () => {
 
 
 
-
   return (
-    <section className="invalid-user-section">
+    <section className="directory-enumeration-section">
 
       {!isPending ?
         isSuccess && 
@@ -63,7 +47,7 @@ const InvalidUser = () => {
             <section className="alert-info-section">
 
               <div className="left-section">
-                <UserSearch size={52} style={{ color : "red" }}/>
+                <FolderSearch size={52} style={{ color : "red" }}/>
                 <div>
                   <h4>{data.alert_type.toUpperCase()}</h4>
                   <p>
@@ -93,51 +77,15 @@ const InvalidUser = () => {
 
             </section>
 
-            <section className="alert-target-details-section">
-
-              <div>
-                <Globe className="icon" size={20}/>
-                <div>
-                  <h4>SOURCE IP</h4>
-                  <p>{data.source_ip}</p>
-                </div>
-              </div>
-
-              <div>
-                <Server className="icon" size={20}/>
-                <div>
-                  <h4>HOST</h4>
-                  <p>{data.host}</p>
-                </div>
-              </div>
-
-              <div>
-                <Cog className="icon" size={20}/>
-                <div>
-                  <h4>SERVICE</h4>
-                  <p>{data.service}</p>
-                </div>
-              </div>
-
-              <div>
-                <Waypoints className="icon" size={20}/>
-                <div>
-                  <h4>PROTOCOL/PORT</h4>
-                  <p>{data.protocol}/{data.port}</p>
-                </div>
-              </div>
-
-
-            </section>
-
             <section className="alert-details-section">
               <h4>ALERT DETAILS</h4>
               <div>
                 <p><FileCode size={15}/>Rule ID : <span>{data.rule_id}</span></p>
                 <p><ScrollText size={15}/>Rule Name : <span>{data.rule_name}</span></p>
                 <p><CircleAlert size={15}/>Status : <span>{data.status}</span></p>
-                <p><Cpu size={15}/>PID : <span>{data.pid}</span></p>
-                <p><ShieldX size={15}/>Total Failed Attempts : <span>{data.failed_attempts}</span></p>
+                <p><Globe size={15}/>Source IP  : <span>{data.source_ip}</span></p>
+                <p><BadgeInfo size={15}/>Status Code : <span>{data.status_code}</span></p>
+                <p><Hash size={15}/>Request Count : <span>{data.request_count}</span></p>
                 <p><Fingerprint size={15}/>MITRE ID : <span>{data.mitre_technique}</span></p>
                 <p><Crosshair size={15}/>MITRE Name : <span>{data.mitre_name}</span></p>
                 <p><Clock size={15}/>Start Time : <span>{new Date(data.starting_time).toLocaleString("en-US",{
@@ -161,23 +109,29 @@ const InvalidUser = () => {
                   hour12 : false
                 }).replace(",","")}</span></p>
                 <p><Timer size={15}/>Duration : <span>{formatDuration(data.starting_time , data.ending_time)}</span></p>
-                <p><UsersRound size={15}/>Users : <span>
-                  {data.users.map((user)=>`${user} , `)}
-                </span></p>
               </div>
+            </section>
+
+            <section className="logs-section">
+              <h4>LOGS</h4>
+              <section>
+                {data.logs.map((log,index)=>{
+                  return <p key={index}>{log}</p>
+                })}
+              </section>
             </section>
 
             <section className="summary-section">
               <h4>ATTACK SUMMARY</h4>
               <p>
-                {`A username enumeration attack was detected originating from ${data.source_ip} targeting the ${data.host} host 
-                via the ${data.service} service. The monitoring system recorded ${data.failed_attempts} failed authentication 
-                attempts involving the usernames ${data.users.map((user)=>`${user} `)} exceeding the configured detection 
-                threshold. This activity indicates an attempt to identify valid user accounts by systematically probing different 
-                usernames and analyzing authentication responses before launching further credential-based attacks. The observed 
-                behavior suggests reconnaissance activity against the authentication service and should be investigated. Reviewing the 
-                source IP address, monitoring authentication logs for follow-up attacks, and limiting repeated authentication attempts 
-                are recommended to reduce the risk of subsequent compromise`}
+                {`A directory enumeration attack was detected from IP ${data.source_ip} targeting the web application. 
+                  The monitoring system recorded ${data.request_count} requests  with repeated attempts to access potentially sensitive resources such as /admin, 
+                  /phpmyadmin, /.env, /config.php, and /backup.zip. Most requests returned HTTP ${data.status_code} responses, 
+                  indicating that the targeted resources were not found. The activity also included suspicious SQL injection-like 
+                  request parameters, suggesting broader web application reconnaissance. This activity is mapped to MITRE 
+                  ATT&CK technique ${data.mitre_technique} (${data.mitre_name}) and requires further investigation to 
+                  determine whether the source represents an authorized scanner or malicious activity.`
+                }
               </p>
             </section>
 
@@ -196,4 +150,4 @@ const InvalidUser = () => {
   )
 }
 
-export default InvalidUser;
+export default DirectoryEnumeration;

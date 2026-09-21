@@ -17,7 +17,7 @@ import { BadgeAlert,
   Waypoints
 } from "lucide-react";
 import {useMutation, useQuery} from "@tanstack/react-query";
-import { alertAPI, updateStatusAPI } from "../../../api/alertsAPI";
+import { linuxAlertAPI, linuxUpdateStatusAPI } from "../../../api/alertsAPI";
 import {useNavigate,useParams} from "react-router-dom";
 import { formatDuration } from "../../../utils/time";
 import Loading from "../../Loading/Loading";
@@ -31,8 +31,8 @@ const PasswordSpraying = () => {
   const navigate = useNavigate();
   const {id} = useParams();
 
-  const {data,isSuccess,refetch,isPending,isError,error} = useQuery({ queryFn : ()=>alertAPI(id) , queryKey : [id] , enabled : !!id , retry : false });
-  const { mutateAsync , isError : isUpdatingError , error : updatingError } = useMutation({ mutationFn : updateStatusAPI , mutationKey : [id] });
+  const {data,isSuccess,refetch,isPending,isError,error} = useQuery({ queryFn : ()=>linuxAlertAPI(id) , queryKey : [id] , enabled : !!id , retry : false });
+  const { mutateAsync , isError : isUpdatingError , error : updatingError } = useMutation({ mutationFn : linuxUpdateStatusAPI , mutationKey : [id] });
 
 
   const updateStatus = (status) => {

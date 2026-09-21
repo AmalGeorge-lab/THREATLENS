@@ -28,7 +28,7 @@ import {
 } from "lucide-react";
 import {useNavigate,useParams} from "react-router-dom";
 import {useQuery,useMutation} from "@tanstack/react-query";
-import { alertAPI, updateStatusAPI } from "../../../api/alertsAPI";
+import { linuxAlertAPI, linuxUpdateStatusAPI } from "../../../api/alertsAPI";
 import { formatDuration } from "../../../utils/time";
 import Loading from "../../Loading/Loading";
 import { useEffect } from "react";
@@ -43,8 +43,8 @@ const BruteAttack = () => {
   const navigate = useNavigate();
   const {id} = useParams();
 
-  const {data,isSuccess,refetch,isPending,isError,error} = useQuery({ queryFn : ()=>alertAPI(id) , queryKey : [id] , enabled : !!id , retry : false });
-  const { mutateAsync , isError : isUpdatingError , error : updatingError } = useMutation({ mutationFn : updateStatusAPI , mutationKey : [id] });
+  const {data,isSuccess,refetch,isPending,isError,error} = useQuery({ queryFn : ()=>linuxAlertAPI(id) , queryKey : [id] , enabled : !!id , retry : false });
+  const { mutateAsync , isError : isUpdatingError , error : updatingError } = useMutation({ mutationFn : linuxUpdateStatusAPI , mutationKey : [id] });
 
 
   const updateStatus = (status) => {

@@ -174,7 +174,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/*<div>
+        <div>
           <div className="type-heading">
             <Globe size={40} className="lui-globe"/>
             <div>
@@ -188,7 +188,7 @@ const Home = () => {
               <li>Directory Enumeration</li>
               <li>Sensitive File Access</li>
               <li>SQL Injection Attempts</li>
-              <li>Excessive Requests</li>
+              <li>Web Shell Access</li>
             </ul>
           </div>
         </div>
@@ -210,7 +210,7 @@ const Home = () => {
               <li>Internal Network Access Attempt</li>
             </ul>
           </div>
-        </div>*/}
+        </div>
 
       </div>
     </section>

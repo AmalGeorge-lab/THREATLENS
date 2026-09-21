@@ -9,15 +9,16 @@ export const totalLogsCalculator = (files) => {
 
 
 
-export const totalAlertCalculator = (files) => {
-  let totalAlerts = 0;
-  files.forEach((fileInfo)=>{
-    const lowAlertCount = fileInfo.alertsGenerated.low;
-    const mediumAlertCount = fileInfo.alertsGenerated.medium;
-    const highAlertCount = fileInfo.alertsGenerated.high;
-    const criticalAlertCount = fileInfo.alertsGenerated.critical;
-    const alertsCount = lowAlertCount + mediumAlertCount + highAlertCount + criticalAlertCount;
-    totalAlerts += alertsCount;
-  });
-  return totalAlerts;
+export const typeLogCalculator = (files) => {
+  const log = { "AUTH" : 0 , "WEB" : 0 , "FIREWALL" : 0 };
+  files.forEach((file)=>{
+    if (file.logType === "auth"){
+      log.AUTH ++;
+    }else if(file.logType === "web"){
+      log.WEB ++;
+    }else if(file.logType === "firewall"){
+      log.FIREWALL ++;
+    }
+  })
+  return log;
 }

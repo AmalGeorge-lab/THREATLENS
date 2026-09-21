@@ -4,8 +4,8 @@ import { Chart as ChartJS , ArcElement , Tooltip , Legend, plugins , CategorySca
 import {Eye} from "lucide-react";
 import {useNavigate , useParams} from "react-router-dom";
 import {useQuery} from "@tanstack/react-query";
-import { alertsAPI, filteredAlertsAPI } from "../../api/alertsAPI";
-import { alertOrganiser, attackCalculator, ruleCalculator, severityCalculator } from "../../utils/analysisUtils";
+import { linuxAlertsAPI, linuxFilteredAlertsAPI } from "../../api/alertsAPI";
+import { alertOrganiser, attackCalculator, ruleCalculator, severityCalculator } from "../../utils/linuxAnalysisUtils";
 import { useEffect, useState } from "react";
 import Loading from "../Loading/Loading";
 ChartJS.register( ArcElement,Tooltip,Legend , CategoryScale , LinearScale , BarElement , Title);
@@ -18,7 +18,7 @@ ChartJS.register( ArcElement,Tooltip,Legend , CategoryScale , LinearScale , BarE
 
 
 
-const Analysis = () => {
+const LinuxAnalysis = () => {
 
   const navigate = useNavigate();
   const {fileId} = useParams();
@@ -33,21 +33,21 @@ const Analysis = () => {
 
 
   const {data,isSuccess,isPending,isError,error} = useQuery({ 
-    queryFn : ()=>alertsAPI(fileId) ,
+    queryFn : ()=>linuxAlertsAPI(fileId) ,
     queryKey : [fileId] , 
     enabled: !!fileId,
     retry : false 
   });
 
   const { data:filteredAlerts , isSuccess : filterDataFetched , isPending : filteredAlertsPending , isError : isFiltererdError , error : filteringError } = useQuery({
-    queryKey: ["filteredAlerts",filterData],
-    queryFn: ()=>filteredAlertsAPI(filterData)  ,
+    queryKey: ["linuxFilteredAlerts",filterData],
+    queryFn: ()=>linuxFilteredAlertsAPI(filterData)  ,
     retry : false ,
     enabled : filterApplied
   });
 
   useEffect(() => {
-    document.title = "Analysis Result";
+    document.title = "Linux Analysis Result";
   }, []);
 
 
@@ -421,7 +421,7 @@ const Analysis = () => {
                             <td>{alert.rule_name}</td>
                             <td>{alert.alert_type}</td>
                             <td className={alert.status.toLowerCase()}><span>{alert.status}</span></td>
-                            <td><Eye size={15} className="lui-eye" onClick={()=>navigate(`/linux/analysis/${alert.path}/${alert._id}`)}/></td>
+                            <td><Eye size={15} className="lui-eye" onClick={()=>navigate(`/auth/analysis/${alert.path}/${alert._id}`)}/></td>
                           </tr>
                         )
                       })}
@@ -437,4 +437,4 @@ const Analysis = () => {
   )
 }
 
-export default Analysis
+export default LinuxAnalysis;
